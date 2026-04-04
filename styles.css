@@ -1,3 +1,4 @@
+
 .title,
 .skills-box h1,
 .contact-title,
@@ -569,4 +570,276 @@ body::before {
 
 [data-es] {
   transition: opacity 0.2s ease;
+}
+.title,
+.skills-box h1,
+.contact-btn {
+  font-family: 'Moonshine', cursive;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Josefin Sans', sans-serif;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(180,120,255,0.3), transparent),
+    radial-gradient(circle at 80% 70%, rgba(100,255,200,0.3), transparent),
+    radial-gradient(circle at 60% 20%, rgba(120,200,255,0.3), transparent);
+}
+
+/* 🌈 FONDO DEGRADADO SUAVE */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: -1;
+}
+
+/* 🎭 INTRO */
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #202020;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999; /* 👈 SIEMPRE ENCIMA */
+}
+
+/* 🧍 IMAGEN CENTRAL */
+.intro-img { 
+  width: 800px; 
+  max-width: 80%; 
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); 
+  transition: transform 0.3s; }
+
+.intro-img:hover { 
+  transform: scale(1.05); 
+}
+
+/* 🎞️ TICKER */
+.ticker {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.ticker-track span {
+  white-space: nowrap;
+  font-size: 4rem;
+  color: white;
+  padding-right: 80px;
+}
+
+/* animación infinita */
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* 🎬 CONTENIDO */
+.content {
+  position: relative;
+  margin-top: 100vh;
+  filter: brightness(0.3);
+  transition: 0.5s;
+}
+
+.content.reveal {
+  filter: brightness(1);
+}
+
+/* 🟡 PROJECTS */
+.projects-section {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TITULO */
+.title {
+  font-family: 'Moonshine', cursive;
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+/* carrusel */
+.carousel {
+  display: flex;
+  gap: 60px;
+}
+
+.item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item h2 {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2.4rem; /* 🔥 más grande */
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+  color: black;
+}
+
+.item:hover h2 {
+  transform: translateY(-3px);
+}
+
+/* imágenes */
+.item img {
+  width: 600px;
+  border-radius: 20px;
+
+  /* 🔥 sombra REAL alrededor */
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4));
+  transition: 0.3s;
+}
+
+.item:hover img {
+  transform: scale(1.1);
+}
+
+/* 🔥 SKILLS */
+.skills-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🧊 CAJA */
+.skills-box {
+  background: rgba(255, 255, 255, 0.2); /* translúcido */
+  backdrop-filter: blur(15px); /* efecto glass */
+  border-radius: 30px;
+
+  padding: 50px 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* título */
+.skills-box h1 {
+  font-family: 'Moonshine', cursive;
+  font-size: 4rem;
+  margin-bottom: 40px;
+}
+
+/* contenedor */
+.skills-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* 🔥 BOTÓN SKILL */
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔥 SIEMPRE CENTRADO */
+
+  gap: 10px;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 20px;
+  background: white;
+
+  font-size: 60px;
+  cursor: pointer;
+
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* TEXTO OCULTO */
+.skill span {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* 🔥 EXPANSIÓN PRO */
+.skill.active {
+  width: 200px;
+  justify-content: center;
+}
+
+/* mostrar texto */
+.skill.active span {
+  opacity: 1;
+  width: auto;
+}
+
+/* HOVER COLOR */
+.skill:hover {
+  transform: scale(1.1);
+}
+
+/* colores */
+.skill.html:hover { color: #e34c26; }
+.skill.css:hover { color: #264de4; }
+.skill.js:hover { color: #f0db4f; }
+.skill.figma:hover { color: #a259ff; }
+.skill.git:hover { color: #f1502f; }
+.skill.sql:hover { color: #00758f; }
+.skill.csharp:hover { color: #68217a; }
+
+/* 📩 CONTACT */
+.contact-section {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-btn {
+  font-family: 'Moonshine', cursive;
+  font-size: 3rem;
+
+  padding: 20px 60px;
+  border-radius: 50px;
+
+  background: black;
+  color: white;
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(45deg, #b47bff, #64ffc8);
+  transform: scale(1.1);
+
+
 }
